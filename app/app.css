@@ -7,11 +7,85 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-slate-950 text-slate-100;
+  color-scheme: dark;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+.meals__list {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+}
+
+.meals {
+  @apply mx-auto max-w-6xl px-4 py-8 md:px-8 md:py-12;
+}
+
+.meals__hero {
+  @apply mb-6 rounded-2xl border border-slate-700 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 p-6 md:p-8;
+}
+
+.meals__eyebrow {
+  @apply mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-amber-300;
+}
+
+.meals__title {
+  @apply text-3xl font-black leading-tight text-slate-100 md:text-5xl;
+}
+
+.meals__subtitle {
+  @apply mt-3 max-w-2xl text-sm text-slate-300 md:text-base;
+}
+
+.meals__meta {
+  @apply mb-4 text-sm font-medium text-slate-400;
+}
+
+.meal-card {
+  @apply overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 shadow-sm shadow-slate-950/40 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-900/70;
+}
+
+.meal-card__image {
+  @apply h-48 w-full object-cover;
+}
+
+.meal-card__title {
+  @apply p-4 text-base font-bold leading-snug text-slate-100;
+}
+
+.meals__empty {
+  @apply mt-6 text-center text-sm text-slate-400;
+}
+
+.home {
+  @apply min-h-screen px-4 py-10 md:px-8 md:py-16;
+  background:
+    radial-gradient(circle at 5% 5%, rgb(30 41 59 / 0.8), transparent 42%),
+    radial-gradient(circle at 100% 0%, rgb(120 53 15 / 0.35), transparent 35%),
+    linear-gradient(to bottom, #020617, #0b1120 35%, #020617 100%);
+}
+
+.home__hero {
+  @apply mx-auto flex w-full max-w-5xl flex-col gap-8 rounded-3xl border border-slate-700/80 bg-slate-900/90 p-6 shadow-lg shadow-black/40 backdrop-blur md:gap-10 md:p-10;
+}
+
+.home__brand {
+  @apply flex flex-col gap-3;
+}
+
+.home__eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.22em] text-amber-300;
+}
+
+.home__logo-wrap {
+  @apply w-full max-w-md;
+}
+
+.home__copy {
+  @apply max-w-3xl;
+}
+
+.home__title {
+  @apply text-3xl font-black leading-tight text-slate-100 md:text-6xl;
+  font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
 }
 
 .meals-grid {
@@ -24,4 +98,14 @@ body {
   width: 100%;
   height: auto;
   display: block;
+.home__subtitle {
+  @apply mt-4 text-base leading-relaxed text-slate-300 md:text-lg;
+}
+
+.home__actions {
+  @apply flex flex-wrap items-center gap-3;
+}
+
+.home__cta {
+  @apply inline-flex items-center rounded-full border border-amber-400 bg-amber-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition-colors duration-200 hover:border-amber-300 hover:bg-amber-300;
 }

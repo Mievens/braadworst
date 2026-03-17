@@ -1,3 +1,5 @@
+
+import logoDark from "../assets/logo-dark.svg";
 import { Link } from "react-router";
 import { Welcome } from "../welcome/welcome";
 import Latest from "./components/Latest";
@@ -19,11 +21,37 @@ export default function Home({ loaderData }) {
   const { mealData } = loaderData;
 
   return (
-    <div>
-      <Welcome />
-      <Link to="meals">Go to meals</Link>
-      <Latest meals={mealData} />
-    </div>
-  )
+    <main className="home">
+      <section className="home__hero">
+        <header className="home__brand">
+          <p className="home__eyebrow">Flavor Journal</p>
+          <div className="home__logo-wrap">
+            <img
+              src={logoDark}
+              alt="The meal db"
+              className="block w-full"
+            />
+          </div>
+        </header>
 
+        <div className="home__copy">
+          <h1 className="home__title">Plan your next meal with confidence.</h1>
+          <p className="home__subtitle">
+            Explore curated dishes, compare ideas quickly, and jump straight to
+            recipes worth cooking tonight.
+          </p>
+        </div>
+
+        <nav className="home__actions" aria-label="Primary">
+          <Link className="home__cta" to="meals">
+            Explore Meals
+          </Link>
+<Link to="ingredients" className="text-blue-700 hover:underline dark:text-blue-500">
+        View Ingredients
+      </Link>
+        </nav>
+ <Latest meals={mealData} />
+      </section>
+    </main>
+  );
 }
