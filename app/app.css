@@ -98,6 +98,8 @@ body {
   width: 100%;
   height: auto;
   display: block;
+}
+
 .home__subtitle {
   @apply mt-4 text-base leading-relaxed text-slate-300 md:text-lg;
 }
