@@ -4,4 +4,5 @@ export default [
     index("routes/home.jsx"),
     route("meals", "routes/meals.jsx"),
     route("recipes", "routes/recipes.jsx"),
+    route("detail/:idMeal", "routes/detail.jsx"),
 ];

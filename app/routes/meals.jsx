@@ -1,4 +1,6 @@
 
+import { Link } from "react-router";
+
 export async function clientLoader() {
     const res = await fetch("https://themealdb.com/api/json/v1/1/search.php?f=a");
     const data = await res.json();
@@ -22,12 +24,12 @@ export default function Warmup({ loaderData }) {
             <ul className="meals__list">
                 {mealData.map((meal) => (
                     <li key={meal.idMeal} className="meal-card">
-                        <img
+                <img
                             className="meal-card__image"
                             src={meal.strMealThumb}
                             alt={meal.strMeal}
                         />
-                        <h2 className="meal-card__title">{meal.strMeal}</h2>
+                        <Link to={`/detail/${meal.idMeal}`}>{meal.strMeal}</Link>
                     </li>
                 ))}
             </ul>
