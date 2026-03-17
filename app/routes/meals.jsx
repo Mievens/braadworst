@@ -6,18 +6,35 @@ export async function clientLoader() {
 }
 
 export default function Warmup({ loaderData }) {
-    console.log(loaderData);
     const { mealData } = loaderData;
     return (
-        <div>
-            <h1>Meals</h1>
-            <ul>
+        <main className="meals">
+            <header className="meals__hero">
+                <p className="meals__eyebrow">Discover</p>
+                <h1 className="meals__title">Meals Library</h1>
+                <p className="meals__subtitle">
+                    Browse simple recipe inspiration and pick your next dish.
+                </p>
+            </header>
+
+            <div className="meals__meta">{mealData.length} meals found</div>
+
+            <ul className="meals__list">
                 {mealData.map((meal) => (
-                    <li key={meal.idMeal}>
-                        {meal.strMeal}
+                    <li key={meal.idMeal} className="meal-card">
+                        <img
+                            className="meal-card__image"
+                            src={meal.strMealThumb}
+                            alt={meal.strMeal}
+                        />
+                        <h2 className="meal-card__title">{meal.strMeal}</h2>
                     </li>
                 ))}
             </ul>
-        </div>
+
+            {mealData.length === 0 && (
+                <p className="meals__empty">No meals found right now.</p>
+            )}
+        </main>
     );
 }
