@@ -5,4 +5,5 @@ export default [
     route("meals", "routes/meals.jsx"),
     route("ingredients", "routes/components/ingredients.jsx"),
     route("recipes", "routes/recipes.jsx"),
+    route("detail/:idMeal", "routes/detail.jsx"),
 ];
