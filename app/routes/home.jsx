@@ -1,6 +1,14 @@
 
 import logoDark from "../assets/logo-dark.svg";
 import { Link } from "react-router";
+import { Welcome } from "../welcome/welcome";
+import Latest from "./components/Latest";
+
+export async function clientLoader() {
+  const res = await fetch("https://themealdb.com/api/json/v1/1/search.php?f=a");
+  const data = await res.json();
+  return { mealData: data.meals };
+}
 
 export function meta() {
   return [
@@ -9,7 +17,9 @@ export function meta() {
   ];
 }
 
-export default function Home() {
+export default function Home({ loaderData }) {
+  const { mealData } = loaderData;
+
   return (
     <main className="home">
       <section className="home__hero">
@@ -40,6 +50,7 @@ export default function Home() {
         View Ingredients
       </Link>
         </nav>
+ <Latest meals={mealData} />
       </section>
     </main>
   );

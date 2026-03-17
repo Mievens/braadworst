@@ -88,6 +88,16 @@ body {
   font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
 }
 
+.meals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.meals-item img {
+  width: 100%;
+  height: auto;
+  display: block;
 .home__subtitle {
   @apply mt-4 text-base leading-relaxed text-slate-300 md:text-lg;
 }
