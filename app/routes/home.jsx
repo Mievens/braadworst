@@ -45,11 +45,11 @@ export default function Home({ loaderData }) {
           <Link className="home__cta" to="meals">
             Explore Meals
           </Link>
-<Link to="ingredients" className="text-blue-700 hover:underline dark:text-blue-500">
-        View Ingredients
-      </Link>
+          <Link to="ingredients" className="text-blue-700 hover:underline dark:text-blue-500">
+            View Ingredients
+          </Link>
         </nav>
- <Latest meals={mealData} />
+        <Latest meals={mealData} />
       </section>
     </main>
   );
