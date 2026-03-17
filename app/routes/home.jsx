@@ -36,6 +36,9 @@ export default function Home() {
           <Link className="home__cta" to="meals">
             Explore Meals
           </Link>
+<Link to="ingredients" className="text-blue-700 hover:underline dark:text-blue-500">
+        View Ingredients
+      </Link>
         </nav>
       </section>
     </main>
