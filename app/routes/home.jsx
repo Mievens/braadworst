@@ -1,4 +1,5 @@
 import { Welcome } from "../welcome/welcome";
+import { Link } from "react-router";
 
 export function meta() {
   return [
@@ -8,5 +9,11 @@ export function meta() {
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <div>
+      <Welcome />
+      <Link to="meals">Go to meals</Link>
+    </div>
+  )
+
 }
