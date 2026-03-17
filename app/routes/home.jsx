@@ -1,5 +1,4 @@
-import { Welcome } from "../welcome/welcome";
-import { Link } from "react-router";
+import {Link} from "react-router";
 
 export function meta() {
   return [
@@ -11,9 +10,10 @@ export function meta() {
 export default function Home() {
   return (
     <div>
-      <Welcome />
-      <Link to="meals">Go to meals</Link>
+      <h1>Welcome to Braadworst Router</h1>
+      <Link to="ingredients" className="text-blue-700 hover:underline dark:text-blue-500">
+        View Ingredients
+      </Link>
     </div>
-  )
-
+  );
 }
