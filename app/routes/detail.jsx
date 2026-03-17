@@ -1,15 +1,28 @@
 import { Link } from "react-router";
 
 export async function clientLoader({ params }) {
-    const res = await fetch(
+    const detailRes = await fetch(
         `https://themealdb.com/api/json/v1/1/lookup.php?i=${params.idMeal}`,
     );
-    const data = await res.json();
-    return { meal: data.meals[0] };
+    const detailData = await detailRes.json();
+    const meal = detailData.meals[0];
+
+    const listRes = await fetch("https://themealdb.com/api/json/v1/1/search.php?f=a");
+    const listData = await listRes.json();
+    const meals = listData.meals;
+
+    const currentIndex = meals.findIndex((item) => item.idMeal === params.idMeal);
+    const prevMealId = currentIndex > 0 ? meals[currentIndex - 1].idMeal : null;
+    const nextMealId =
+        currentIndex !== -1 && currentIndex < meals.length - 1
+            ? meals[currentIndex + 1].idMeal
+            : null;
+
+    return { meal, prevMealId, nextMealId };
 }
 
 export default function Detail({ loaderData }) {
-    const { meal } = loaderData;
+    const { meal, prevMealId, nextMealId } = loaderData;
 
     if (!meal) {
         return (
@@ -39,6 +52,12 @@ export default function Detail({ loaderData }) {
                     </a>
                 </p>
             ) : null}
+
+            <div>
+                {prevMealId ? <Link to={`/detail/${prevMealId}`}>Previous meal</Link> : null}
+                {" "}
+                {nextMealId ? <Link to={`/detail/${nextMealId}`}>Next meal</Link> : null}
+            </div>
         </div>
     );
 }
