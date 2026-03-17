@@ -1,7 +1,6 @@
 
 import logoDark from "../assets/logo-dark.svg";
 import { Link } from "react-router";
-import { Welcome } from "../welcome/welcome";
 import Latest from "./components/Latest";
 
 export async function clientLoader() {

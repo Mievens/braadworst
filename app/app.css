@@ -104,6 +104,10 @@ body {
   @apply mt-4 text-base leading-relaxed text-slate-300 md:text-lg;
 }
 
+.home__subtitle {
+  @apply mt-4 text-base leading-relaxed text-slate-300 md:text-lg;
+}
+
 .home__actions {
   @apply flex flex-wrap items-center gap-3;
 }
