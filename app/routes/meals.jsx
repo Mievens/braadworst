@@ -24,12 +24,13 @@ export default function Warmup({ loaderData }) {
             <ul className="meals__list">
                 {mealData.map((meal) => (
                     <li key={meal.idMeal} className="meal-card">
-                <img
-                            className="meal-card__image"
-                            src={meal.strMealThumb}
-                            alt={meal.strMeal}
-                        />
-                        <Link to={`/detail/${meal.idMeal}`}>{meal.strMeal}</Link>
+                        <Link to={`/detail/${meal.idMeal}`}>
+                            <img
+                                className="meal-card__image"
+                                src={meal.strMealThumb}
+                                alt={meal.strMeal}
+                            />
+                            <h2>{meal.strMeal}</h2></Link>
                     </li>
                 ))}
             </ul>
