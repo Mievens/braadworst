@@ -1,4 +1,6 @@
 
+import { Link } from "react-router";
+
 export async function clientLoader() {
     const res = await fetch("https://themealdb.com/api/json/v1/1/search.php?f=a");
     const data = await res.json();
@@ -14,7 +16,7 @@ export default function Warmup({ loaderData }) {
             <ul>
                 {mealData.map((meal) => (
                     <li key={meal.idMeal}>
-                        {meal.strMeal}
+                        <Link to={`/detail/${meal.idMeal}`}>{meal.strMeal}</Link>
                     </li>
                 ))}
             </ul>
